@@ -8,9 +8,8 @@ window.onload=()=>{
     openid=localStorage.getItem('openid');
     token=localStorage.getItem('token');   
     let iWps=WebOfficeSDK.config({
-        url:"https://www.kdocs.cn/l/cdydROGhyVe2?_w_tokentype=1",
+        url:"https://www.kdocs.cn/office/k/239691124317?_w_tokentype=1",
     })
-
     iWps.setToken({token:"ExchangeToken-zdyaazuacacuomffbzgfuwqrroreqfwcyuqzwswctsscsxtn",timeout:24*60*60*1000,hasRefreshTokenConfig:false})
 }
 function weixin(){
