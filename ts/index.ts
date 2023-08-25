@@ -14,4 +14,33 @@ window.onload=()=>{
     let sha1=new jsSHA("SHA-1","TEXT",{ encoding: "UTF8" });
     let jsticket=weixintoken.ticket;
     let timestamp=weixintoken.timetamp;
+    wx.config({
+        debug: false,
+        appId: 'wx8301d806150dba74',
+        timestamp:timestamp,
+        nonceStr: 'fxzqf',
+        signature: sha1.update("jsapi_ticket=" + jsticket + "&" + "noncestr=fxzqf&" + "timestamp=" + timestamp + "&" + "url=" + window.location.href).getHash("HEX"),
+        jsApiList: [
+            'scanQRCode'
+        ]
+    });
+    wx.ready(function () {
+        wx.error(function (res: any) {
+            alert(res.errMsg);
+        });
+    });
+    let qrBt = document.querySelector('#scanQRCode1') as HTMLElement;
+    // 9.1.2 扫描二维码并返回结果
+    qrBt.onclick = function () {
+        wx.scanQRCode({
+            needResult: 1,
+            desc: 'scanQRCode desc',
+            success: function (res: any) {
+                //APP1.Sheets(2).then((e:any)=>{
+                //    e.Record.CreateRecords({Records:[{fields:{"编码":res.resultStr,"名称":"新添加商品"}}]});
+                //})
+            }
+        });
+    };
+    qrBt.innerText = "扫码添加"
 }
