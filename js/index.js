@@ -7,6 +7,7 @@ window.onload = () => {
     code = localStorage.getItem('code');
     openid = localStorage.getItem('openid');
     token = localStorage.getItem('token');
+    WebOfficeSDK.init({ officeType: "s", appId: "AK20220921TSPWLO", fileId: "198353287588" });
 };
 function weixin() {
     let http = new XMLHttpRequest();
