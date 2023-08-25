@@ -7,9 +7,10 @@ window.onload = () => {
     code = localStorage.getItem('code');
     openid = localStorage.getItem('openid');
     token = localStorage.getItem('token');
-    WebOfficeSDK.config({
-        url: "https://www.kdocs.cn/l/cdydROGhyVe2",
+    let iWps = WebOfficeSDK.config({
+        url: "https://www.kdocs.cn/l/cdydROGhyVe2?_w_tokentype=1",
     });
+    iWps.setToken({ token: "ExchangeToken-zdyaazuacacuomffbzgfuwqrroreqfwcyuqzwswctsscsxtn", timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
 };
 function weixin() {
     let http = new XMLHttpRequest();
