@@ -10,7 +10,8 @@ window.onload = () => {
     let iWps = WebOfficeSDK.config({
         url: "https://www.kdocs.cn/office/k/239691124317?_w_tokentype=1",
     });
-    iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
+    if (token)
+        iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
 };
 function weixin() {
     let http = new XMLHttpRequest();
