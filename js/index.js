@@ -1,7 +1,8 @@
 "use strict";
 let code;
 let openid;
-let token;
+let token = null;
+let weixintoken;
 window.onload = () => {
     code = localStorage.getItem('code');
     openid = localStorage.getItem('openid');
@@ -9,5 +10,8 @@ window.onload = () => {
     let http = new XMLHttpRequest();
     http.open("GET", "https://zhibiao.uicp.fun/weixin", false);
     http.send();
-    console.log(http.responseText);
+    weixintoken = JSON.parse(http.responseText);
+    let sha1 = new jsSHA("SHA-1", "TEXT", { encoding: "UTF8" });
+    let jsticket = weixintoken.ticket;
+    let timestamp = weixintoken.timetamp;
 };
