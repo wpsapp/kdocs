@@ -7,6 +7,11 @@ window.onload=()=>{
     code=localStorage.getItem('code');
     openid=localStorage.getItem('openid');
     token=localStorage.getItem('token');   
+    
+}
+
+
+function weixin(){
     let http=new XMLHttpRequest();
     http.open("GET","https://zhibiao.uicp.fun/weixin",false);
     http.send();
