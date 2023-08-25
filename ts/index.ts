@@ -7,7 +7,6 @@ window.onload=()=>{
     code=localStorage.getItem('code');
     openid=localStorage.getItem('openid');
     token=localStorage.getItem('token');   
-    
 }
 
 
