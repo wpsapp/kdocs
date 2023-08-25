@@ -2,12 +2,12 @@ let code:string|null;
 let openid:string|null;
 let token:string|null=null;
 let weixintoken:{ticket:string,timetamp:number};
-
+let iWps:WebOffice.IWps;
 window.onload=()=>{
     code=localStorage.getItem('code');
     openid=localStorage.getItem('openid');
     token=localStorage.getItem('token');   
-    let iWps=WebOfficeSDK.config({
+    iWps=WebOfficeSDK.config({
         url:"https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
     })
     if(token) iWps.setToken({token:token,timeout:24*60*60*1000,hasRefreshTokenConfig:false})

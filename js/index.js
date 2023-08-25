@@ -3,11 +3,12 @@ let code;
 let openid;
 let token = null;
 let weixintoken;
+let iWps;
 window.onload = () => {
     code = localStorage.getItem('code');
     openid = localStorage.getItem('openid');
     token = localStorage.getItem('token');
-    let iWps = WebOfficeSDK.config({
+    iWps = WebOfficeSDK.config({
         url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
     });
     if (token)
