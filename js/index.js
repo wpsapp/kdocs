@@ -1,19 +1,22 @@
 "use strict";
+//let wpsapp;
 let wpsapp;
-let iWps;
 window.onload = async () => {
     let code = localStorage.getItem('code');
     let openid = localStorage.getItem('openid');
     if (openid && code) {
         let token = editToken(openid, code);
         if (token && token != "") {
-            iWps = WebOfficeSDK.config({
+            wpsapp = WebOfficeSDK.config({
                 //url:"https://www.kdocs.cn/office/k/241486792105?_w_tokentype=1",
                 url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
                 mount: document.getElementById("custom-mount"),
             });
-            iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
-            wpsapp = await iWps.ready();
+            wpsapp.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
+            if (wpsapp.ready)
+                await wpsapp.ready();
+            else
+                wpsapp.advancedApiReady();
         }
         else
             window.location.href = "https://developer.kdocs.cn/h5/auth?app_id=AK20220921TSPWLO&scope=user_basic&redirect_uri=https://wpsapp.github.io/&state=kdocs";
