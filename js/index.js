@@ -11,7 +11,9 @@ window.onload = () => {
                 url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
             });
             iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
-            iWps.advancedApiReady();
+            iWps.advancedApiReady().then((e) => {
+                wpsapp = e;
+            });
         }
         else
             window.location.href = "https://developer.kdocs.cn/h5/auth?app_id=AK20220921TSPWLO&scope=user_basic&redirect_uri=https://wpsapp.github.io/&state=kdocs";
