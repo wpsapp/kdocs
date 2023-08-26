@@ -1,3 +1,4 @@
+let wpsapp;
 let iWps: WebOffice.IWps;
 window.onload = () => {
     let code = localStorage.getItem('code');
@@ -7,11 +8,13 @@ window.onload = () => {
         if (token && token != "") {
             iWps = WebOfficeSDK.config({
                 url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
-            })
+            });
             iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false })
+            iWps.ready().then((e) => { wpsapp = e; });
         } else
             window.location.href = "https://developer.kdocs.cn/h5/auth?app_id=AK20220921TSPWLO&scope=user_basic&redirect_uri=https://wpsapp.github.io/&state=kdocs";
     }
+
 }
 function editToken(openid: string, code: string) {
 
@@ -25,7 +28,7 @@ function weixin() {
     let http = new XMLHttpRequest();
     http.open("GET", "https://zhibiao.uicp.fun/weixin", false);
     http.send();
-    let weixintoken:{ticket:string,timetamp:number} = JSON.parse(http.responseText);
+    let weixintoken: { ticket: string, timetamp: number } = JSON.parse(http.responseText);
     let sha1 = new jsSHA("SHA-1", "TEXT", { encoding: "UTF8" });
     let jsticket = weixintoken.ticket;
     let timestamp = weixintoken.timetamp;
