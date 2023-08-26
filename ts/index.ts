@@ -7,7 +7,6 @@ window.onload = () => {
     code = localStorage.getItem('code');
     openid = localStorage.getItem('openid');
     if (openid && code) token = editToken(openid, code);
-
     iWps = WebOfficeSDK.config({
         url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
     })
