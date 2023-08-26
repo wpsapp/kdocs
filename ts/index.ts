@@ -7,6 +7,7 @@ window.onload =async () => {
         let token = editToken(openid, code);
         if (token && token != "") {
             wpsapp = WebOfficeSDK.config({
+                //https://www.kdocs.cn/office/d/193902652010
                 //url:"https://www.kdocs.cn/office/k/241486792105?_w_tokentype=1",
                 url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
                 mount: document.getElementById("custom-mount") as HTMLElement,  
