@@ -15,7 +15,7 @@ window.onload = () => {
     if (token && token != "")
         iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
     else
-        window.location.href = "https://wpsapp.github.io/?state=kdocs";
+        window.location.href = "https://developer.kdocs.cn/h5/auth?app_id=AK20220921TSPWLO&scope=user_basic&redirect_uri=https://wpsapp.github.io/&state=kdocs";
 };
 function editToken(openid, code) {
     let http = new XMLHttpRequest();
