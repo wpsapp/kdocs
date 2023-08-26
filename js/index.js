@@ -13,7 +13,7 @@ window.onload = async () => {
                 mount: document.getElementById("custom-mount"),
             });
             iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
-            wpsapp = await iWps.advancedApiReady();
+            wpsapp = await iWps.ready();
         }
         else
             window.location.href = "https://developer.kdocs.cn/h5/auth?app_id=AK20220921TSPWLO&scope=user_basic&redirect_uri=https://wpsapp.github.io/&state=kdocs";

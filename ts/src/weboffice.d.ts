@@ -322,7 +322,7 @@ declare namespace WebOffice {
         Props?: string
         mainVersion?: string
         advancedApiReady:()=>any,
-        //ready: () => Promise<any>
+        ready: () => Promise<any>
         destroy: () => Promise<any>
         WpsApplication?: () => any
         WordApplication?: () => any
