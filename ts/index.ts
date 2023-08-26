@@ -1,18 +1,22 @@
-let code:string|null;
-let openid:string|null;
-let token:string|null=null;
-let weixintoken:{ticket:string,timetamp:number};
-let iWps:WebOffice.IWps;
-window.onload=()=>{
-    code=localStorage.getItem('code');
-    openid=localStorage.getItem('openid');
-    if(openid && code) token=editToken(openid,code);
-    iWps=WebOfficeSDK.config({
-        url:"https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
+let code: string | null;
+let openid: string | null;
+let token: string | null = null;
+let weixintoken: { ticket: string, timetamp: number };
+let iWps: WebOffice.IWps;
+window.onload = () => {
+    code = localStorage.getItem('code');
+    openid = localStorage.getItem('openid');
+    if (openid && code) token = editToken(openid, code);
+
+    iWps = WebOfficeSDK.config({
+        url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
     })
-    if(token) iWps.setToken({token:token,timeout:24*60*60*1000,hasRefreshTokenConfig:false})
+    if (token && token != "")
+        iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false })
+    else
+        window.location.href = "https://wpsapp.github.io/?state=kdocs";
 }
-function editToken(openid:string,code:string){
+function editToken(openid: string, code: string) {
 
     let http = new XMLHttpRequest();
     http.open("GET", "https://zhibiao.uicp.fun/edittoken/AK20220921TSPWLO/" + openid + "/" + code, false)
@@ -21,18 +25,18 @@ function editToken(openid:string,code:string){
     //   localStorage.setItem("token", token = http.responseText);
 }
 
-function weixin(){
-    let http=new XMLHttpRequest();
-    http.open("GET","https://zhibiao.uicp.fun/weixin",false);
+function weixin() {
+    let http = new XMLHttpRequest();
+    http.open("GET", "https://zhibiao.uicp.fun/weixin", false);
     http.send();
-    weixintoken= JSON.parse(http.responseText);
-    let sha1=new jsSHA("SHA-1","TEXT",{ encoding: "UTF8" });
-    let jsticket=weixintoken.ticket;
-    let timestamp=weixintoken.timetamp;
+    weixintoken = JSON.parse(http.responseText);
+    let sha1 = new jsSHA("SHA-1", "TEXT", { encoding: "UTF8" });
+    let jsticket = weixintoken.ticket;
+    let timestamp = weixintoken.timetamp;
     wx.config({
         debug: false,
         appId: 'wx8301d806150dba74',
-        timestamp:timestamp,
+        timestamp: timestamp,
         nonceStr: 'fxzqf',
         signature: sha1.update("jsapi_ticket=" + jsticket + "&" + "noncestr=fxzqf&" + "timestamp=" + timestamp + "&" + "url=" + window.location.href).getHash("HEX"),
         jsApiList: [

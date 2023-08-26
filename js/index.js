@@ -12,8 +12,10 @@ window.onload = () => {
     iWps = WebOfficeSDK.config({
         url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
     });
-    if (token)
+    if (token && token != "")
         iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
+    else
+        window.location.href = "https://wpsapp.github.io/?state=kdocs";
 };
 function editToken(openid, code) {
     let http = new XMLHttpRequest();
