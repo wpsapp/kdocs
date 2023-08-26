@@ -6,7 +6,7 @@ window.onload = () => {
     if (openid && code) {
         let token = editToken(openid, code);
         if (token && token != "") {
-            iWps = WebOfficeSDK.config({
+            iWps = WPS.config({
                 url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
             });
             iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false })
