@@ -9,8 +9,7 @@ window.onload =async () => {
             wpsapp = WebOfficeSDK.config({
                 //url:"https://www.kdocs.cn/office/k/241486792105?_w_tokentype=1",
                 url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
-                mount: document.getElementById("custom-mount") as HTMLElement,
-                
+                mount: document.getElementById("custom-mount") as HTMLElement,  
             });
             wpsapp.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false })
             if(wpsapp.ready) await wpsapp.ready(); else wpsapp.advancedApiReady();
