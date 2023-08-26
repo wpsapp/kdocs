@@ -6,12 +6,21 @@ let iWps:WebOffice.IWps;
 window.onload=()=>{
     code=localStorage.getItem('code');
     openid=localStorage.getItem('openid');
-    token=localStorage.getItem('token');   
+    if(openid && code) token=editToken(openid,code);
     iWps=WebOfficeSDK.config({
         url:"https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
     })
     if(token) iWps.setToken({token:token,timeout:24*60*60*1000,hasRefreshTokenConfig:false})
 }
+function editToken(openid:string,code:string){
+
+    let http = new XMLHttpRequest();
+    http.open("GET", "https://zhibiao.uicp.fun/edittoken/AK20220921TSPWLO/" + openid + "/" + code, false)
+    http.send();
+    if (http.readyState == 4) return http.responseText; else return null;
+    //   localStorage.setItem("token", token = http.responseText);
+}
+
 function weixin(){
     let http=new XMLHttpRequest();
     http.open("GET","https://zhibiao.uicp.fun/weixin",false);
