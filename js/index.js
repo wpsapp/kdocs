@@ -7,11 +7,11 @@ window.onload = () => {
     if (openid && code) {
         let token = editToken(openid, code);
         if (token && token != "") {
-            iWps = WPS.config({
+            iWps = WebOfficeSDK.config({
                 url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
             });
             iWps.setToken({ token: token, timeout: 24 * 60 * 60 * 1000, hasRefreshTokenConfig: false });
-            iWps.ready().then((e) => { wpsapp = e; });
+            iWps.advancedApiReady();
         }
         else
             window.location.href = "https://developer.kdocs.cn/h5/auth?app_id=AK20220921TSPWLO&scope=user_basic&redirect_uri=https://wpsapp.github.io/&state=kdocs";
