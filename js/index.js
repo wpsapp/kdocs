@@ -8,6 +8,7 @@ window.onload = async () => {
         let token = editToken(openid, code);
         if (token && token != "") {
             iWps = WebOfficeSDK.config({
+                //241486792105
                 url: "https://www.kdocs.cn/l/cfxmYD4CCodK?_w_tokentype=1",
                 //url: "https://www.kdocs.cn/wo/sl/v32eDTAf?_w_tokentype=1",
             });
