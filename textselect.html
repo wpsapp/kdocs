@@ -68,11 +68,11 @@
         }
         sele.onchange=()=>{text.value=sele.value;}
         text.onblur=()=>{
-            //alert(document.activeElement);
+            alert(document.hasFocus());
             //if(document.activeElement.id!=sele.id)
             //sele.style.display="none";
             //text.value=sele.value;
-            sele.focus();
+            //sele.focus();
         }
         document.onfocus=()=>{
 
