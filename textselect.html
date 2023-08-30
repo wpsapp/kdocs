@@ -25,6 +25,7 @@
         position: absolute;
         top: 30px;
         left:0px;
+        visibility:hidden;
     }
 </style>
 
@@ -57,7 +58,16 @@
         </span>
 
     </p>
-
+<script>
+    window.onload=()=>{
+        let text=document.getElementById("kaodian");
+        let sele=document.getElementById("selkaodian");
+        text.onfocus=()=>{
+            sele.style.visibility="visible"
+        }
+        
+    }
+</script>
 </body>
 
 </html>
