@@ -67,8 +67,9 @@
             sele.size=10;
         }
         text.onblur=()=>{
-            if(document.activeElement.id!=sele.id)
-                sele.style.visibility="hidden";
+            alert(document.activeElement);
+            //if(document.activeElement.id!=sele.id)
+            //sele.style.visibility="hidden";
             //text.value=sele.value;
         }
         sele.onfocus=()=>{
