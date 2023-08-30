@@ -39,7 +39,7 @@
 
     <p>知识点输入或选择框：<span id="mybox">
 
-            <select id="selkaodian" class="kd" onchange="$('#kaodian').val(this.value);" size="10">
+            <select id="selkaodian" class="kd"  size="10">
 
                 <option value="" style="display:none;"></option>
 
@@ -64,6 +64,9 @@
         let sele=document.getElementById("selkaodian");
         text.onfocus=()=>{
             sele.style.visibility="visible"
+        }
+        text.onblur=()=>{
+            sele.style.visibility="hidden"
         }
         
     }
