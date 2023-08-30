@@ -64,11 +64,12 @@
         let sele=document.getElementById("selkaodian");
         text.onfocus=()=>{
             sele.style.visibility="visible"
+            sele.size=10;
         }
         text.onblur=()=>{
             sele.style.visibility="hidden"
         }
-        sele.onselect=()=>{text.text=sele.Value}
+        sele.onselect=()=>{text.text=sele.Value;sele.size=0;}
     }
 </script>
 </body>
