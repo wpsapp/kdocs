@@ -67,15 +67,15 @@
             sele.size=10;
         }
         text.onblur=()=>{
-            alert(document.activeElement);
+            //alert(document.activeElement);
             //if(document.activeElement.id!=sele.id)
-            //sele.style.visibility="hidden";
+            sele.style.visibility="hidden";
             //text.value=sele.value;
         }
         sele.onfocus=()=>{
 
         }
-        sele.onchange=()=>{text.value=sele.value;sele.size=0;}
+        sele.onblur=()=>{text.value=sele.value;sele.size=0;}
     }
 </script>
 </body>
