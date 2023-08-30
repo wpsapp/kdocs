@@ -25,7 +25,7 @@
         position: absolute;
         top: 30px;
         left:0px;
-        visibility:hidden;
+        display:none;
     }
 </style>
 
@@ -63,14 +63,14 @@
         let text=document.getElementById("kaodian");
         let sele=document.getElementById("selkaodian");
         text.onfocus=()=>{
-            sele.style.visibility="visible"
+            sele.style.display="block"
             sele.size=10;
         }
         sele.onchange=()=>{text.value=sele.value;}
         text.onblur=()=>{
             //alert(document.activeElement);
             //if(document.activeElement.id!=sele.id)
-            sele.style.visibility="hidden";
+            sele.style.display="none";
             //text.value=sele.value;
         }
         sele.onfocus=()=>{
