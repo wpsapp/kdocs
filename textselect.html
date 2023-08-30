@@ -67,7 +67,8 @@
             sele.size=10;
         }
         text.onblur=()=>{
-            sele.style.visibility="hidden"
+            sele.style.visibility="hidden";
+            text.value=sele.value;
         }
         sele.onchange=()=>{text.value=sele.value;sele.size=0;}
     }
