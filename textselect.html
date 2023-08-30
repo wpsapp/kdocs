@@ -69,13 +69,13 @@
 
         }
         text.onfocus=()=>{
-            box.focus();
+            //box.focus();
             sele.style.display="block"
             sele.size=10;
         }
         sele.onchange=()=>{text.value=sele.value;}
         text.onblur=()=>{
-            //box.focus();
+            box.focus();
             //alert(document.hasFocus());
             //if(document.activeElement.id!=sele.id)
             //sele.style.display="none";
