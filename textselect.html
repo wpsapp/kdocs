@@ -24,8 +24,21 @@
     #selkaodian {
         position: absolute;
         top: 30px;
-        left:0px;
-        display:none;
+        left: 0px;
+        display: none;
+    }
+
+    .tdiv {
+        width: 100px;
+        height: 30px;
+        overflow: hidden;
+        text-align: center;
+        background: red;
+    }
+
+    .tdiv:active {
+        overflow: visible;
+
     }
 </style>
 
@@ -37,9 +50,9 @@
 
     <p>第2行</p>
 
-    <p>知识点输入或选择框：<span id="mybox" tabindex="1">
+    <p>知识点输入或选择框：<div id="mybox" class="tdiv">
 
-            <select id="selkaodian" class="kd"  size="10">
+            <select id="selkaodian" class="kd" size="10">
 
 
                 <option value="选项1">选项1</option>
@@ -57,43 +70,43 @@
         </span>
 
     </p>
-<script>
-    window.onload=()=>{
-        let text=document.getElementById("kaodian");
-        let sele=document.getElementById("selkaodian");
-        let box=document.getElementById("mybox");
-        box.onfocus=()=>{
+    <script>
+        window.onload = () => {
+            let text = document.getElementById("kaodian");
+            let sele = document.getElementById("selkaodian");
+            let box = document.getElementById("mybox");
+            box.onfocus = () => {
 
-        }
-        box.onblur=()=>{
+            }
+            box.onblur = () => {
 
-        }
-        text.onfocus=()=>{
-            //box.focus();
-            sele.style.display="block"
-            sele.size=10;
-        }
-        sele.onchange=()=>{text.value=sele.value;}
-        text.onblur=()=>{
-            box.focus();
-            //alert(document.hasFocus());
-            //if(document.activeElement.id!=sele.id)
-            //sele.style.display="none";
-            //text.value=sele.value;
-            //sele.focus();
-        }
-        document.onfocus=()=>{
+            }
+            text.onfocus = () => {
+                //box.focus();
+                sele.style.display = "block"
+                sele.size = 10;
+            }
+            sele.onchange = () => { text.value = sele.value; }
+            text.onblur = () => {
+                box.focus();
+                //alert(document.hasFocus());
+                //if(document.activeElement.id!=sele.id)
+                //sele.style.display="none";
+                //text.value=sele.value;
+                //sele.focus();
+            }
+            document.onfocus = () => {
 
-        }
-        sele.onfocus=()=>{
+            }
+            sele.onfocus = () => {
 
-        }
-        document.onblur=()=>{
+            }
+            document.onblur = () => {
 
+            }
+            //sele.onblur=()=>{text.value=sele.value;sele.size=0;}
         }
-        //sele.onblur=()=>{text.value=sele.value;sele.size=0;}
-    }
-</script>
+    </script>
 </body>
 
 </html>
