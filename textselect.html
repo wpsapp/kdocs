@@ -67,7 +67,7 @@
             sele.size=10;
         }
         text.onblur=()=>{
-            if(document.activeElement!=sele)
+            if(document.activeElement.id!=sele.id)
                 sele.style.visibility="hidden";
             //text.value=sele.value;
         }
